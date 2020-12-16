@@ -1,7 +1,7 @@
 class WorksController < ApplicationController
   before_action :set_work, only: [:edit, :update, :destroy, :show]
   def index
-    @works = Work.all
+    @works = Work.all.by_new
   end
 
   def show

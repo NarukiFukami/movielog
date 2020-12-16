@@ -1,1 +1,11 @@
-%edittt
+%h1="Directors"
+=@director.name
+%br
+%br
+=@director.country
+%br
+
+
+=link_to "Go to TOP", directors_path
+=link_to "Go to EDIT", edit_director_path(@director)
+=link_to "Go to DELETE", director_path(@director), method: :delete, data: {confirm: "Want to delete?"}

@@ -1,0 +1,8 @@
+%h1 DirectorsIndex
+
+-@directors.each_with_index do |director, index|
+  #{index + 1}.
+  =link_to director.name, director_path(director)
+  %br
+  %br
+=link_to "Register", new_director_path
