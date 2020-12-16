@@ -1,0 +1,13 @@
+%h1="Workshow"
+=@work.title
+%br
+=@work.release
+%br
+=@work.cast
+%br
+=@work.discription
+%br
+
+=link_to "Go to TOP", works_path
+=link_to "Go to EDIT", edit_work_path(@work)
+=link_to "Go to DELETE", work_path(@work), method: :delete, data: {confirm: "削除しますか？"}

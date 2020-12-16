@@ -5,27 +5,31 @@ class WorksController < ApplicationController
     end
 
     def show
-      @work = Work.find(params[:id])
     end
 
     def new
-      @work = Work.all
+      @work = Work.new
     end
 
     def create
+      @work = Work.new(work_params)
+
+      if @work.save
+        redirect_to works_path
+      else
+        render "new"
+      end
     end
 
     def edit
-      @work = Work.find(params[:id])
     end
 
     def update
-      @work = Work.find(params[:id])
     end
 
     def destroy
-      @work = Work.find(params[:id])
       @works.destroy
+      redirect_to works_path
     end
 
     private
