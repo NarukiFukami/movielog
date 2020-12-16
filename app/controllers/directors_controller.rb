@@ -1,24 +1,37 @@
 class DirectorsController < ApplicationController
 
-  def index
-  end
+  before_action :set_director, only: [:edit, :update, :destroy, :show]
+    def index
+      @director = Director.all
+    end
 
-  def show
-  end
+    def show
+      @director = Director.find(params[:id])
+    end
 
-  def new
-  end
+    def new
+      @director = Director.all
+    end
 
-  def create
-  end
+    def create
+    end
 
-  def edit
-  end
+    def edit
+      @director = Director.find(params[:id])
+    end
 
-  def update
-  end
+    def update
+      @director = Director.find(params[:id])
+    end
 
-  def destroy
-  end
+    def destroy
+      @director = Director.find(params[:id])
+      @Director.destroy
+    end
+
+    private
+    def set_director
+      @director = Director.find(params[:id])
+    end
 
 end
