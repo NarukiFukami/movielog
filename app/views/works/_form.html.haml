@@ -1,5 +1,6 @@
 =bootstrap_form_with model: @work, local: true do |f|
   =f.text_field :title, placeholder: "TITLE"
+  =f.collection_select :director_id, Director.all, :id, :name, include_blank: true, class: 'form-control'
   =f.text_field :release,  placeholder: "RELEASE DATE"
   =f.text_field :cast, placeholder: "CAST"
   =f.text_field :description,  placeholder: "DESCRIPTION"
