@@ -1,7 +1,5 @@
 class DirectorsController < ApplicationController
-
   before_action :set_director, only: [:edit, :update, :destroy, :show]
-
   def index
     @directors = Director.all.by_new
   end
