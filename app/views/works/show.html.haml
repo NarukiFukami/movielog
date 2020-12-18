@@ -1,28 +1,59 @@
-%h1="showwwwww"
-=@work.title
-%br
-%br
-=@work.release
-%br
-%br
-=@work.cast
-%br
-%br
-=@work.description
-%br
-%br
-=@work.director.name
-%br
-%br
-%h2 RELATED WORKS
--@work.director.works.each do |work|
-  -unless @work == work
-    =link_to "#{work.title}, (#{work.release})", work_path(work)
-    %br
-
-=link_to "Go to TOP", works_path
-=link_to "Go to EDIT", edit_work_path(@work)
-=link_to "Go to DELETE", work_path(@work), method: :delete, data: {confirm: "削除しますか？"}
+-# %h1="showwwwww"
+-# =@work.title
+-# %br
+-# %br
+-# =@work.release
+-# %br
+-# %br
+-# =@work.cast
+-# %br
+-# %br
+-# =@work.description
+-# %br
+-# %br
+-# =@work.director.name
+-# %br
+-# %br
+-# %h2 RELATED WORKS
+-# -@work.director.works.each do |work|
+-#   -unless @work == work
+-#     =link_to "#{work.title}, (#{work.release})", work_path(work)
+-#     %br
+-#
+-# =link_to "Go to TOP", works_path
+-# =link_to "Go to EDIT", edit_work_path(@work)
+-# =link_to "Go to DELETE", work_path(@work), method: :delete, data: {confirm: "削除しますか？"}
 
 -# -director = Director.find(@work.director_id)
 -# =director.name
+
+
+%main#main
+  %section.section
+    .container
+      .row.mb-4.align-items-center
+        .col-md-6{"data-aos" => "fade-up"}
+          %h2=@work.title
+          %p=@work.release
+    .site-section.pb-0
+      .container
+        .row.align-items-stretch
+          .col-md-8{"data-aos" => "fade-up"}
+            %img.img-fluid{:alt => "Image", :src => "/img/img_1_big.jpg"}/
+          .col-md-3.ml-auto{"data-aos" => "fade-up", "data-aos-delay" => "100"}
+            .sticky-content
+              %h3.h3
+                =link_to @work.director.name, director_path(@work.director)
+              %p.mb-4
+                %span.text-muted=@work.director.country
+              %p.mb-4
+                %span.text-muted=@work.cast
+              .mb-5
+                %p=@work.description
+
+              %h4.h4.mb-3 RELATED WORKS
+              %ul.list-unstyled.list-line.mb-5
+                -@work.director.works.each do |work|
+                  -unless @work == work
+                    %li
+                      =link_to "#{work.title}, (#{work.release})", work_path(work)
