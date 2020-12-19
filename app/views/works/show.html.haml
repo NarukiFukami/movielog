@@ -47,13 +47,18 @@
               %p.mb-4
                 %span.text-muted=@work.director.country
               %p.mb-4
+                %h6 Starring
                 %span.text-muted=@work.cast
               .mb-5
+                %h6 Summary
                 %p=@work.description
 
-              %h4.h4.mb-3 RELATED WORKS
+              %h4.h4.mb-3 DIRECTOR-RELATED MOVIES
               %ul.list-unstyled.list-line.mb-5
                 -@work.director.works.each do |work|
                   -unless @work == work
                     %li
                       =link_to "#{work.title}, (#{work.release})", work_path(work)
+
+                      -# %br
+                      -# =link_to "HOME", works_path

@@ -1,8 +1,14 @@
-%h1 DirectorsIndex
-
--@directors.each_with_index do |director, index|
-  #{index + 1}.
-  =link_to director.name, director_path(director)
+.container.pt-4.pb-4
+  %h3 Directors
   %br
-  %br
-=link_to "Register", new_director_path
+  -@directors.each do |director|
+    =link_to director.name, director_path(director)
+    %br
+    %br
+  =link_to new_director_path do
+    %button.btn.btn-outline-secondary{:type => "button"} NEW DIRECTOR
+  =link_to works_path do
+    %button.btn.btn-outline-secondary{:type => "button"} HOME
+  -# =link_to 'Add new movie', new_work_path(director_id: @director.id)
+  -# =link_to "Go to EDIT", edit_director_path(@director)
+  -# =link_to "Go to DELETE", director_path(@director), method: :delete, data: {confirm: "Want to delete?"}
