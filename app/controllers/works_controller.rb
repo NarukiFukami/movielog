@@ -52,6 +52,8 @@ class WorksController < ApplicationController
       :description,
       :director_id,
       :image,
+      :remove_image,
+      :image_cache,
     )
   end
 
