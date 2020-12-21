@@ -1,7 +1,7 @@
 class WorksController < ApplicationController
   before_action :set_work, only: [:edit, :update, :destroy, :show]
   def index
-    @works = Work.all.by_new
+    @works = Work.all.by_new.page(params[:page]).per(4)
   end
 
   def show

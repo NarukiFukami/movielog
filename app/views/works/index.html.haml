@@ -44,7 +44,8 @@
               -else
                 =image_tag '/img/default_image.png', class: 'img-fluid'
 
-
+      =paginate @works
+      %br
       =link_to new_work_path do
         %button.btn.btn-outline-secondary{:type => "button"} REGISTER
       =link_to directors_path do
