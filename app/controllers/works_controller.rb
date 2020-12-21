@@ -51,6 +51,7 @@ class WorksController < ApplicationController
       :cast,
       :description,
       :director_id,
+      :image,
     )
   end
 

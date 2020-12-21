@@ -37,7 +37,8 @@
               .work-info
                 %h3=work.title
                 %span=work.release
-              %img.img-fluid{:src => "/img/img_1.jpg"}/
+              -# %img.img-fluid{:src => "/img/img_1.jpg"}/
+              =image_tag work.image_url, class: 'img-fluid' if work.image_url
 
       =link_to new_work_path do
         %button.btn.btn-outline-secondary{:type => "button"} REGISTER
