@@ -1,6 +1,8 @@
 class Director < ApplicationRecord
+  mount_uploader :image, DirectorImageUploader
+
   has_many :works
-  
+
   validates :name, presence: true
   validates :country, presence: true
 

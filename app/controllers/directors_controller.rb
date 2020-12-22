@@ -1,7 +1,7 @@
 class DirectorsController < ApplicationController
   before_action :set_director, only: [:edit, :update, :destroy, :show]
   def index
-    @directors = Director.all.by_new
+    @directors = Director.all.page(params[:page]).per(8)
   end
 
   def show
@@ -47,6 +47,9 @@ class DirectorsController < ApplicationController
     params[:director].permit(
       :name,
       :country,
+      :image,
+      :remove_image,
+      :image_cache,
     )
   end
 

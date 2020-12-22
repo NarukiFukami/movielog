@@ -44,6 +44,12 @@
               -else
                 =image_tag '/img/default_image.png', class: 'img-fluid'
 
+
+      = search_form_for @q do |f|
+        = f.label :title, "Keyword"
+        = f.search_field :title_or_director_name_cont
+        = f.submit "Search"
+
       =paginate @works
       %br
       =link_to new_work_path do

@@ -1,7 +1,9 @@
 class WorksController < ApplicationController
   before_action :set_work, only: [:edit, :update, :destroy, :show]
   def index
-    @works = Work.all.by_new.page(params[:page]).per(4)
+    # @works = Work.all.by_new.page(params[:page]).per(4)
+    @q = Work.ransack(params[:q])
+    @works = @q.result(distinct: true).page(params[:page]).per(8)
   end
 
   def show
@@ -43,6 +45,7 @@ class WorksController < ApplicationController
   def set_work
     @work = Work.find(params[:id])
   end
+
 
   def work_params
     params[:work].permit(
