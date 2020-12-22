@@ -4,8 +4,8 @@
     .row.align-items-start
       .col-md-2
         %ul.custom-menu
-          %li.active
-            =link_to "HOME", home_index_path
+          -# %li.active
+            -# =link_to "HOME", home_index_path
           %li
             =link_to "DIRECTORS", directors_path
           %li
@@ -14,6 +14,16 @@
             =link_to "REGISTER MOVIES", new_work_path
           -# %li
           -#   %a{:href => "contact.html"} Contact
+
+          -if user_signed_in?
+            %li
+              =link_to "Sign out", destroy_user_session_path
+          -else
+            %li
+              =link_to "Sign in", new_user_session_path
+            %li
+              =link_to "Sign up", new_user_registration_path
+
       .col-md-6.d-none.d-md-block.mr-auto
         .tweet.d-flex
           %span.icofont-twitter.text-white.mt-2.mr-3
