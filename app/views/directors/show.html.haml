@@ -50,6 +50,8 @@
 
             -# =link_to 'Add new movie', new_work_path(director_id: @director.id)
             =link_to "BACK", directors_path
-            =link_to "EDIT", edit_director_path(@director)
-            =link_to "DELETE", director_path(@director), method: :delete, data: {confirm: "Want to delete?"}
             =link_to "MOVIES", works_path
+
+            -if user_signed_in?
+              =link_to "EDIT",  edit_login_director_path(@director)
+              =link_to "DELETE", login_director_path(@director), method: :delete, data: {confirm: "Want to delete?"}

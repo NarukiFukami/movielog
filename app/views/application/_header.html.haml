@@ -10,19 +10,23 @@
             =link_to "DIRECTORS", directors_path
           %li
             =link_to "MOVIES", works_path
-          %li
-            =link_to "REGISTER MOVIES", new_work_path
+
           -# %li
           -#   %a{:href => "contact.html"} Contact
 
           -if user_signed_in?
             %li
               =link_to "Sign out", destroy_user_session_path
+            %li
+              =link_to "Edit Profile", edit_login_profile_path
+            %li
+              =link_to "REGISTER MOVIES", new_login_profile_path
           -else
             %li
               =link_to "Sign in", new_user_session_path
             %li
               =link_to "Sign up", new_user_registration_path
+
 
       .col-md-6.d-none.d-md-block.mr-auto
         .tweet.d-flex

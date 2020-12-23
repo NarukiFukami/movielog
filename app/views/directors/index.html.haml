@@ -41,10 +41,11 @@
                 =image_tag director.image_url(:thumb), class: 'img-fluid'
               -else
                 =image_tag '/img/default_image.png', class: 'img-fluid'
-                
+
       =paginate @directors
       %br
-      =link_to new_director_path do
-        %button.btn.btn-outline-secondary{:type => "button"} REGISTER
+      -if user_signed_in?
+        =link_to new_login_director_path do
+          %button.btn.btn-outline-secondary{:type => "button"} REGISTER
       -# =link_to directors_path do
       -#   %button.btn.btn-outline-secondary{:type => "button"} SEE DIRECTORS

@@ -68,6 +68,8 @@
                       -# %br
                       -# =link_to "HOME", works_path
               =link_to "BACK", works_path
-              =link_to "EDIT", edit_work_path(@work)
-              =link_to "DELETE", work_path(@work), method: :delete, data: {confirm: "Want to delete?"}
+
+              -if user_signed_in?
+                =link_to "EDIT", edit_login_work_path(@work)
+                =link_to "DELETE", work_path(@work), method: :delete, data: {confirm: "Want to delete?"}
               -# =link_to "", works_path
