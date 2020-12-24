@@ -3,6 +3,8 @@ class Work < ApplicationRecord
 
   belongs_to :director
 
+  acts_as_list
+
   validates :title, presence: true
   validates :title, uniqueness: true
   validates :release, presence: true
