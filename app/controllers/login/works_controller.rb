@@ -63,6 +63,7 @@ class Login::WorksController < Login::ApplicationController
       :image,
       :remove_image,
       :image_cache,
+      tag_ids: []
     )
   end
 

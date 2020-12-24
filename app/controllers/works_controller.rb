@@ -63,6 +63,7 @@ class WorksController < ApplicationController
   #     :image,
   #     :remove_image,
   #     :image_cache,
+
   #   )
   # end
 

@@ -35,6 +35,8 @@
         .col-md-6{"data-aos" => "fade-up"}
           %h2=@work.title
           %p=@work.release
+          -@work.tags.each do |tag|
+            =link_to tag.name, tag_path(tag)
     .site-section.pb-0
       .container
         .row.align-items-stretch
@@ -64,6 +66,7 @@
                   -unless @work == work
                     %li
                       =link_to "#{work.title}, (#{work.release})", work_path(work)
+
 
                       -# %br
                       -# =link_to "HOME", works_path
