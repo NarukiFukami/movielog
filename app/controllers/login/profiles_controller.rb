@@ -35,6 +35,7 @@ class Login::ProfilesController < Login::ApplicationController
       :image,
       :user_id,
       :remove_image,
+      :image_cache,
     )
   end
 end

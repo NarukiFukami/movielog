@@ -43,8 +43,8 @@
               -else
                 =image_tag '/img/default_image.png', class: 'img-fluid'
 
-            = link_to higher_work_path(work), class: work.first? ? ' disabled' : '' do
-              %i.fa.fa-arrow-up
+            -# = link_to higher_work_path(work), class: work.first? ? ' disabled' : '' do
+            -#   %i.fa.fa-arrow-up
 
 
       = search_form_for @q do |f|

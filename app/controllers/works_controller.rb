@@ -41,10 +41,10 @@ class WorksController < ApplicationController
   #   redirect_to works_path
   # end
 
-  def move_higher
-    Work.find(params[:id]).move_higher
-    redirect_to :action => 'index'
-  end
+  # def move_higher
+  #   Work.find(params[:id]).move_higher
+  #   redirect_to :action => 'index'
+  # end
 
   private
 
