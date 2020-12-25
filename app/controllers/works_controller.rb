@@ -2,7 +2,7 @@ class WorksController < ApplicationController
   before_action :set_work, only: [:show]
   def index
     # @works = Work.all.by_new.page(params[:page]).per(4)
-    @q = Work.all.by_position.ransack(params[:q])
+    @q = Work.all.includes(:director).by_position.ransack(params[:q])
     @works = @q.result(distinct: true).page(params[:page]).per(8)
   end
 

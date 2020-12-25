@@ -37,7 +37,8 @@
               .work-info
                 %h3=work.title
                 %span=work.release
-
+                %br
+                %span=work.director.name
               -if work.image.present?
                 =image_tag work.image_url(:thumb), class: 'img-fluid'
               -else
