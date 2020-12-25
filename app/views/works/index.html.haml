@@ -13,50 +13,50 @@
 -# =link_to "Register", new_work_path
 
 
+%body.body
+  %main#main
+    / ======= Works Section =======
+    %section.section.site-portfolio
+      .container
+        .row.mb-5.align-items-center
+          .col-md-12.col-lg-6.mb-4.mb-lg-0{"data-aos" => "fade-up"}
+            %h2 MOVIELOG INDEX
+            %p.mb-0 Discover the best out of the bests
+          .col-md-12.col-lg-6.text-left.text-lg-right{"data-aos" => "fade-up", "data-aos-delay" => "100"}
+            #filters.filters
+              %a.active{"data-filter" => "*", :href => "#"} All
+              %a{"data-filter" => ".web", :href => "#"} Web
+              %a{"data-filter" => ".design", :href => "#"} Design
+              %a{"data-filter" => ".branding", :href => "#"} Branding
+              %a{"data-filter" => ".photography", :href => "#"} Photography
+        #portfolio-grid.row.no-gutter{"data-aos" => "fade-up", "data-aos-delay" => "200"}
+          -@works.each do |work|
+            .item.web.col-sm-6.col-md-4.col-lg-4.mb-4
+              -# %a.item-wrap.fancybox{:href => "work-single.html"}
+              =link_to work_path(work), class: 'item-wrap fancybox' do
+                .work-info
+                  %h3=work.title
+                  %span=work.release
+                  %br
+                  %span=work.director.name
+                -if work.image.present?
+                  =image_tag work.image_url(:thumb), class: 'img-fluid'
+                -else
+                  =image_tag '/img/default_image.png', class: 'img-fluid'
 
-%main#main
-  / ======= Works Section =======
-  %section.section.site-portfolio
-    .container
-      .row.mb-5.align-items-center
-        .col-md-12.col-lg-6.mb-4.mb-lg-0{"data-aos" => "fade-up"}
-          %h2 MOVIELOG INDEX
-          %p.mb-0 Discover the best out of the bests
-        .col-md-12.col-lg-6.text-left.text-lg-right{"data-aos" => "fade-up", "data-aos-delay" => "100"}
-          #filters.filters
-            %a.active{"data-filter" => "*", :href => "#"} All
-            %a{"data-filter" => ".web", :href => "#"} Web
-            %a{"data-filter" => ".design", :href => "#"} Design
-            %a{"data-filter" => ".branding", :href => "#"} Branding
-            %a{"data-filter" => ".photography", :href => "#"} Photography
-      #portfolio-grid.row.no-gutter{"data-aos" => "fade-up", "data-aos-delay" => "200"}
-        -@works.each do |work|
-          .item.web.col-sm-6.col-md-4.col-lg-4.mb-4
-            -# %a.item-wrap.fancybox{:href => "work-single.html"}
-            =link_to work_path(work), class: 'item-wrap fancybox' do
-              .work-info
-                %h3=work.title
-                %span=work.release
-                %br
-                %span=work.director.name
-              -if work.image.present?
-                =image_tag work.image_url(:thumb), class: 'img-fluid'
-              -else
-                =image_tag '/img/default_image.png', class: 'img-fluid'
-
-            -# = link_to higher_work_path(work), class: work.first? ? ' disabled' : '' do
-            -#   %i.fa.fa-arrow-up
+              -# = link_to higher_work_path(work), class: work.first? ? ' disabled' : '' do
+              -#   %i.fa.fa-arrow-up
 
 
-      = search_form_for @q do |f|
-        = f.label :title, "Keyword"
-        = f.search_field :title_or_director_name_cont
-        = f.submit "Search"
+        = search_form_for @q do |f|
+          = f.label :title, "Keyword"
+          = f.search_field :title_or_director_name_cont
+          = f.submit "Search"
 
-      =paginate @works
-      %br
-      -if user_signed_in?
-        =link_to  new_login_work_path do
-          %button.btn.btn-outline-secondary{:type => "button"} REGISTER
-      -# =link_to directors_path do
-      -#   %button.btn.btn-outline-secondary{:type => "button"} SEE DIRECTORS
+        =paginate @works
+        %br
+        -if user_signed_in?
+          =link_to  new_login_work_path do
+            %button.btn.btn-outline-secondary{:type => "button"} REGISTER
+        -# =link_to directors_path do
+        -#   %button.btn.btn-outline-secondary{:type => "button"} SEE DIRECTORS
