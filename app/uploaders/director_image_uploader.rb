@@ -26,7 +26,7 @@ class DirectorImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  process resize_to_fit: [730, nil]
+  process resize_to_fit: [400, nil]
   #
   # def scale(width, height)
   #   # do something
