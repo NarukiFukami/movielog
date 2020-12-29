@@ -16,16 +16,16 @@
 
           -if user_signed_in?
             %li
-              =link_to "Sign out", destroy_user_session_path
+              =link_to "SIGN OUT", destroy_user_session_path
             %li
-              =link_to "Edit Profile", edit_login_profile_path
+              =link_to "EDIT PROFILE", edit_login_profile_path
             %li
-              =link_to "REGISTER MOVIES", new_login_work_path
+              =link_to "REGISTER", new_login_work_path
           -else
             %li
-              =link_to "Sign in", new_user_session_path
+              =link_to "SIGN IN", new_user_session_path
             %li
-              =link_to "Sign up", new_user_registration_path
+              =link_to "SIGN UP", new_user_registration_path
 
 
       .col-md-6.d-none.d-md-block.mr-auto
